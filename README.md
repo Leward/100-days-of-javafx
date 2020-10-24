@@ -1,0 +1,1 @@
+Code snippets for my [100 Days of JavaFX](https://leward.eu/2020/10/21/javafx-100-days-of-code.html) series.
