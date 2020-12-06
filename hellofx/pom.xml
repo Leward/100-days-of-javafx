@@ -33,7 +33,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.5</version>
         <configuration>
-          <mainClass>eu.leward.hellofx.HelloFX</mainClass>
+          <mainClass>eu.leward.hellofxml.HelloFXML</mainClass>
         </configuration>
       </plugin>
       <plugin>
@@ -41,7 +41,7 @@
         <artifactId>client-maven-plugin</artifactId>
         <version>0.1.31</version>
         <configuration>
-          <mainClass>eu.leward.hellofx.HelloFX</mainClass>
+          <mainClass>eu.leward.hellofxml.HelloFXML</mainClass>
         </configuration>
       </plugin>
     </plugins>

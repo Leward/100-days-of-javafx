@@ -1,4 +1,4 @@
-package eu.leward.hellofx;
+package eu.leward.hellofxml;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
