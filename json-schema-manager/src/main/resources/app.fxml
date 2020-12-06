@@ -13,21 +13,13 @@
             prefHeight="400.0" prefWidth="600.0">
 
     <left>
-<TreeView>
-    <TreeItem value="Schemas" expanded="true" fx:id="schemasTreeRoot">
-        <children>
-            <TreeItem value="event.json"/>
-            <TreeItem value="game.json"/>
-        </children>
-    </TreeItem>
-</TreeView>
+        <ListView fx:id="schemaListView"/>
     </left>
 
     <center>
         <TabPane>
             <Tab text="JSON" closable="false">
-                <TextArea style="-fx-font-family: 'Inconsolata'">
-                    { "$id": "https://example.com/person.schema.json" }
+                <TextArea style="-fx-font-family: 'Inconsolata'" fx:id="schemaEditor">
                 </TextArea>
             </Tab>
             <Tab text="Designer" closable="false">
