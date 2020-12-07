@@ -1,49 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import eu.leward.jschema.EditingPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
 
-<?import javafx.collections.FXCollections?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="eu.leward.jschema.AppController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <left>
-        <ListView fx:id="schemaListView"/>
-    </left>
+  <left>
+    <ListView fx:id="schemaListView"/>
+  </left>
 
-    <center>
-        <TabPane>
-            <Tab text="JSON" closable="false">
-                <TextArea style="-fx-font-family: 'Inconsolata'" fx:id="schemaEditor">
-                </TextArea>
-            </Tab>
-            <Tab text="Designer" closable="false">
-                <GridPane hgap="10" vgap="10" style="-fx-padding: 20px;">
-                    <Label text="\$id" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <TextField text='https://example.com/person.schema.json' GridPane.rowIndex="0"
-                               GridPane.columnIndex="1"/>
-
-                    <Label text="title" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                    <TextField text='Person' GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-
-                    <Label text="type" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                    <ChoiceBox GridPane.rowIndex="2" GridPane.columnIndex="1" value="object">
-                        <String fx:value="object"/>
-                        <String fx:value="string"/>
-                        <String fx:value="number"/>
-                        <String fx:value="boolean"/>
-                    </ChoiceBox>
-                </GridPane>
-            </Tab>
-            <Tab text="Examples">
-                <Label text="Examples will come here"/>
-            </Tab>
-        </TabPane>
-    </center>
+  <center>
+    <EditingPane fx:id="editingPane"/>
+  </center>
 
 </BorderPane>
