@@ -1,12 +1,12 @@
 package eu.leward.jschema;
 
+import eu.leward.jschema.highlighting.Json;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TextArea;
-import org.fxmisc.easybind.EasyBind;
+import org.fxmisc.richtext.CodeArea;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +14,9 @@ import java.net.URL;
 public class EditingPane extends TabPane {
 
     @FXML
-    private TextArea schemaEditor;
+    private CodeArea schemaEditor;
+
+    private final Json json = new Json();
 
     final private ObjectProperty<Schema> schema = new SimpleObjectProperty<>();
 
@@ -31,9 +33,13 @@ public class EditingPane extends TabPane {
             throw new RuntimeException(e);
         }
 
-        schemaEditor.textProperty().bind(
-            EasyBind.monadic(schema).selectProperty(Schema::rawProperty)
-        );
+        schemaEditor.textProperty().addListener((obs, oldText, newText) -> {
+            schemaEditor.setStyleSpans(0, json.highlight(newText));
+        });
+
+        schema.addListener((observable, oldValue, newValue) -> {
+            schemaEditor.replaceText(newValue.getRaw());
+        });
     }
 
     public Schema getSchema() {

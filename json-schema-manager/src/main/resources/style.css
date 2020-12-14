@@ -1,0 +1,15 @@
+.red-text {
+    -fx-fill: red;
+}
+
+.json-property {
+    -fx-fill: blue;
+}
+
+.json-number {
+    -fx-fill: purple;
+}
+
+.json-string {
+    -fx-fill: red;
+}

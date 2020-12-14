@@ -6,13 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import org.fxmisc.richtext.CodeArea?>
+
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          type="javafx.scene.control.TabPane">
 
   <Tab text="JSON" closable="false">
-    <TextArea style="-fx-font-family: 'Inconsolata'" fx:id="schemaEditor">
-    </TextArea>
+    <CodeArea fx:id="schemaEditor" />
   </Tab>
 
   <Tab text="Designer" closable="false">

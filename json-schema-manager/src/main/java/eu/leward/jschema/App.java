@@ -19,6 +19,11 @@ public class App extends Application {
         // Assign the loaded view to the stage and show it
         Scene scene = new Scene(pane);
         stage.setScene(scene);
+
+        // Configure CSS
+        URL cssResource = App.class.getResource("/style.css");
+        scene.getStylesheets().add(cssResource.toExternalForm());
+
         stage.show();
     }
 
