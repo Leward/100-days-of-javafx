@@ -42,7 +42,7 @@ public class Json {
                 }
             }
         } catch (IOException e) {
-            System.err.printf("JSON Error: %s%n", e.getMessage());
+            // System.err.printf("JSON Error: %s%n", e.getMessage());
         }
 
         StyleSpansBuilder<Collection<String>> spansBuilder = new StyleSpansBuilder<>();
@@ -57,6 +57,10 @@ public class Json {
             int length = match.end - match.start;
             spansBuilder.add(Collections.singleton(match.kind), length);
             lastPos = match.end;
+        }
+
+        if(lastPos == 0) {
+            spansBuilder.add(Collections.emptyList(), code.length());
         }
 
         return spansBuilder.create();
