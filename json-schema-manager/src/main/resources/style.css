@@ -4,12 +4,15 @@
 
 .json-property {
     -fx-fill: blue;
+    /*-fx-underline: true;*/
 }
 
 .json-number {
     -fx-fill: purple;
+    /*-fx-underline: true;*/
 }
 
 .json-string {
     -fx-fill: red;
+    /*-fx-underline: true;*/
 }

@@ -14,11 +14,7 @@ import java.util.List;
 
 public class Json {
 
-    private final JsonFactory jsonFactory;
-
-    public Json() {
-        jsonFactory = new JsonFactory();
-    }
+    private final JsonFactory jsonFactory = new JsonFactory();
 
     public StyleSpans<Collection<String>> highlight(String code) {
         List<Match> matches = new ArrayList<>();
@@ -31,7 +27,7 @@ public class Json {
                 int end = start + parser.getTextLength();
 
                 // Because getTextLength() does contain the surrounding ""
-                if(jsonToken == JsonToken.VALUE_STRING || jsonToken == JsonToken.FIELD_NAME) {
+                if (jsonToken == JsonToken.VALUE_STRING || jsonToken == JsonToken.FIELD_NAME) {
                     end += 2;
                 }
 
@@ -59,7 +55,7 @@ public class Json {
             lastPos = match.end;
         }
 
-        if(lastPos == 0) {
+        if (lastPos == 0) {
             spansBuilder.add(Collections.emptyList(), code.length());
         }
 
