@@ -6,6 +6,7 @@ module eu.leward.jschema {
     requires org.fxmisc.richtext;
     requires flowless;
     requires com.fasterxml.jackson.core;
+    requires org.leadpony.justify;
 
     opens eu.leward.jschema to javafx.graphics, javafx.fxml;
 }

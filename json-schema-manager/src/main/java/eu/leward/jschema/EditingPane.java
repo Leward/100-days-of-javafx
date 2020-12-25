@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import org.fxmisc.richtext.CodeArea;
 
 import java.io.IOException;
@@ -15,6 +16,12 @@ public class EditingPane extends TabPane {
 
     @FXML
     private CodeArea schemaEditor;
+
+    @FXML
+    private TextField schemaTitle;
+
+    // TODO: Track which tab is currently selected
+    // this can be used to avoid bi-directional listen issues
 
     private final Json json = new Json();
 
@@ -35,10 +42,16 @@ public class EditingPane extends TabPane {
 
         schemaEditor.textProperty().addListener((obs, oldText, newText) -> {
             schemaEditor.setStyleSpans(0, json.highlight(newText));
+            schema.getValue().setRaw(newText);
         });
 
         schema.addListener((observable, oldValue, newValue) -> {
             schemaEditor.replaceText(newValue.getRaw());
+            schemaTitle.setText(newValue.getJsonSchema().title());
+            // TODO: Could this lead to some memory leaks?
+            newValue.jsonSchemaProperty().addListener((observable1, oldValue1, newValue1) -> {
+                schemaTitle.setText(newValue1.title());
+            });
         });
     }
 
